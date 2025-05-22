@@ -10,7 +10,7 @@ class OpenAiService
     
     public function __construct() 
     {
-        $this->client = OpenAI::client('sk-proj-...');
+        $this->client = OpenAI::client($_ENV['OPENAI_API_KEY']);
     }
 
     public function getResponse(string $input): string 
