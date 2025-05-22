@@ -27,23 +27,28 @@ class Course
         $this->tags[] = $tag;
     }
 
-    public function getTitle(): string
+    public function __get(string $name)
     {
-        return $this->title;
+        if (property_exists($this, $name)) {
+            return $this->$name;
+        }
+
+        return null;
     }
 
-    public function getSubtitle(): string
+    public function __toString()
     {
-        return $this->subtitle;
-    }
-
-    public function getDescription(): string
-    {
-        return $this->description;
-    }
-
-    public function getTags(): array
-    {
-        return $this->tags;
+        $html = "<h1>Bienvenido al {$this->title}</h1>";
+        $html .= "<h2>{$this->subtitle}</h2>";
+        $html .= "<p>{$this->description}</p>";
+        $html .= "<p><strong>Etiquetas:</strong><p>";
+        
+        $html .= "<ul>";
+        foreach ($this->tags as $tag) {
+            $html .= "<li>{$tag}</li>";
+        }
+        $html .= "</ul>";
+        
+        return $html;
     }
 }
