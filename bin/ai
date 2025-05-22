@@ -3,11 +3,9 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use App\FakeAiService;
-use App\OllamaAiService;
-
-// $aiService = new FakeAiService();
-$aiService = new OllamaAiService();
+// $aiService = new  App\FakeAiService();
+// $aiService = new  App\OllamaAiService();
+$aiService = new  App\OpenAiService();
 
 echo 'Ask anything to AI' . PHP_EOL;
 
