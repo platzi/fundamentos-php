@@ -1,6 +1,6 @@
 <?php
 
-require 'CourseType.php';
+namespace App;
 
 class Course 
 {

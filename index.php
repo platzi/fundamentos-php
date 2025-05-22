@@ -1,6 +1,9 @@
 <?php
 
-require 'Course.php';
+require __DIR__ . '/vendor/autoload.php';
+
+use App\Course;
+use App\CourseType;
 
 $course = new Course(
     title: 'Curso de PHP',
