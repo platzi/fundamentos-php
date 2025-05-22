@@ -12,18 +12,36 @@ class Chat
 
     public function start()
     {
-        echo 'Ask anything to AI' . PHP_EOL;
+        $this->welcome();
 
-        while (true) {
-            $input = readline('> ');
-
-            if ($input === 'exit' || $input === '') {
+        while ($input = $this->prompt()) {
+            if ($this->exit($input)) {
                 break;
             }  
 
             $response = $this->aiService->getResponse($input);
 
-            echo $response . PHP_EOL;
+            $this->output($response);
         }
+    }
+
+    private function welcome(): void
+    {
+        echo 'Ask anything to AI' . PHP_EOL;
+    }
+
+    private function prompt(): string
+    {
+        return readline('> ');
+    }
+
+    private function exit(string $input): bool
+    {
+        return trim($input) === 'exit';
+    }
+
+    private function output(string $response): void
+    {
+        echo $response . PHP_EOL;
     }
 }
