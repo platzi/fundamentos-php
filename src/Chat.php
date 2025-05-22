@@ -5,7 +5,7 @@ namespace App;
 class Chat
 {
     public function __construct(
-        protected FakeAiService $aiService
+        protected AIServiceInterface $aiService
     ) {
         // ...
     }
