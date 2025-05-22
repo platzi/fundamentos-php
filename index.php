@@ -1,11 +1,13 @@
 <?php
+
 require 'Course.php';
 
 $course = new Course(
     title: 'Curso de PHP',
     subtitle: 'Aprende PHP desde cero',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.',
-    tags: ['php', 'programación', 'backend']
+    tags: ['php', 'programación', 'backend'],
+    type: CourseType::PAID,
 );
 ?>
 

@@ -1,12 +1,15 @@
 <?php
 
+require 'CourseType.php';
+
 class Course 
 {
     public function __construct(
         protected string $title,
         protected string $subtitle,
         protected string $description,
-        protected array $tags = []
+        protected array $tags = [],
+        protected CourseType $type = CourseType::FREE,
     ) {
     }
 
@@ -38,7 +41,7 @@ class Course
 
     public function __toString()
     {
-        $html = "<h1>Bienvenido al {$this->title}</h1>";
+        $html = "<h1>Bienvenido al {$this->title} - {$this->type->label()}</h1>";
         $html .= "<h2>{$this->subtitle}</h2>";
         $html .= "<p>{$this->description}</p>";
         $html .= "<p><strong>Etiquetas:</strong><p>";
